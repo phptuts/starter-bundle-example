@@ -1,0 +1,43 @@
+language: php
+
+php:
+  - 7.1
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+services:
+  - sqlite
+  - redis
+
+matrix:
+  include:
+    - php: 7.1
+      env: SYMFONY_VERSION="2.8.*"
+    - php: 7.1
+      env: SYMFONY_VERSION="3.2.*"
+    - php: 7.1
+      env: SYMFONY_VERSION="3.3.*"
+  fast_finish: true
+
+before_install:
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+
+install:
+  - composer install
+
+before_script:
+  - mkdir var/jwt
+  - cp scripts/private.pem var/jwt/private.pem
+  - cp scripts/public.pem var/jwt/public.pem
+  - sh scripts/run_before_travis.sh
+
+# In phpunit.xml.dist, tests annotated with "@group mysql" are excluded,
+# revert this.
+script:
+    - php bin/phpunit --exclude-group exclude_travis  --coverage-clover build/logs/clover.xml
+    - CODECLIMATE_REPO_TOKEN=1433a11a7f5ee1e98bf92f114bccdfe47935a8aeb93dd012c3bd5f77ce8cb99a ./vendor/bin/test-reporter
+

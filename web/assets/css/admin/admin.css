@@ -1,0 +1,20 @@
+#main {
+    margin-top: 50px;
+}
+
+#desktop-nav {
+    margin-top: 20px;
+}
+
+/** USER PAGE **/
+
+#user-search-btn {
+    margin-top: 25px;
+}
+
+.update-email-spinner {
+    font-size:24px;
+    left: 20px;
+    position:relative;
+    display:none;
+}

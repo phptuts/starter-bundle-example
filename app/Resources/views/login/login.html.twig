@@ -1,0 +1,87 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/app/main-panel.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('assets/css/app/social-btn.css') }}" rel="stylesheet" media="all">
+{% endblock %}
+
+{% block javascript_before_head %}
+    {{ parent() }}
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    {% include('common/social/facebook-auth-js.html.twig') %}
+    {% include('common/social/google-auth-js.html.twig') %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="panel panel-default col-md-offset-3 col-md-6 main-panel" >
+            <div class="panel-heading">Login Form</div>
+            <div class="panel-body">
+                <form method="post" class="form">
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input class="form-control" type="email" id="email" name="email" value="{{ last_username }}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input class="form-control" type="password" id="password" name="password"/>
+                    </div>
+                    {#
+                        If you want to control the URL the user
+                        is redirected to on success (more details below)
+                        <input type="hidden" name="_target_path" value="/account" />
+                    #}
+                    <div class="form-group submit-btn-container">
+                        <button id="login-btn" type="button" class="btn btn-success pull-right">Login</button>
+                    </div>
+                </form>
+
+                <div class="alert alert-danger alert-dismissible hide" role="alert" id="error-message-auth">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;
+                        </span>
+                    </button>
+                    <span class="message"></span>
+                </div>
+            </div>
+        </div>
+        {% include('common/social/social-auth-btns.html.twig') %}
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js" integrity="sha256-oQaw+JJuUcJQ9QVYMcFnPxICDT+hv8+kuxT2FNzTGhc=" crossorigin="anonymous"></script>
+    {% include('/common/auth-js.html.twig') %}
+    <script type="text/javascript">
+            $("#login-btn").on('click', function() {
+                $.blockUI({message: 'We are logging you right now!! :)'});
+
+                $.ajax({
+                    url: '/login_check',
+                    data: JSON.stringify({email: $('#email').val(), password: $("#password").val()}),
+                    contentType: 'application/json',
+                    type: 'POST',
+                    success: function () {
+                        window.location.href =  '{{ app.request.query.get('nextUrl', '/') }}';
+                    },
+                    error: function (xhr) {
+                        var message = xhr.status === 403 ? 'There was an error using your credential, please try again.' :
+                            'There was a server error please report to support.';
+                        $('#error-message-auth span.message').html(message);
+                        $("#error-message-auth").removeClass('hide');
+                        $.unblockUI();
+                    }
+                });
+
+            });
+    </script>
+
+{% endblock %}

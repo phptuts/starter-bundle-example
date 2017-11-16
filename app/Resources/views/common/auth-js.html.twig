@@ -1,0 +1,30 @@
+<script type="text/javascript">
+
+
+    /**
+     * This sends the type facebook / google and the auth token they use.
+     *
+     */
+    function authenticateWithToken(token, type) {
+        $.blockUI({message: 'We are logging you right now!! :)'});
+
+        $.ajax({
+            url: '/login_check',
+            data: JSON.stringify({type, token}),
+            contentType: 'application/json',
+            type: 'POST',
+            success: function () {
+                window.location.href = '{{ app.request.query.get('nextUrl', '/') }}';
+            },
+            error: function (xhr, textStatus) {
+                var message = xhr.status === 403 ? 'There was an error using your credential, please try again.' :
+                    'There was a server error please report to support.';
+                $('#error-message-auth span.message').html(message);
+                $("#error-message-auth").removeClass('hide');
+                $.unblockUI();
+            }
+        });
+    }
+
+
+</script>

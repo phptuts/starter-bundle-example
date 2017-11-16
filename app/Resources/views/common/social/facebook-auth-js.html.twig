@@ -1,0 +1,30 @@
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId            : '{{ facebook_app_id }}',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : '{{ facebook_api_version }}'
+        });
+
+        $("#facebook_login_btn").on("click", function () {
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    authenticateWithToken(response.authResponse.accessToken, 'facebook');
+                } else {
+
+                }
+            }, {scope: 'email'});
+        });
+
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+</script>
