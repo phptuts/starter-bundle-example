@@ -23,7 +23,10 @@ matrix:
       env: SYMFONY_VERSION="3.3.*"
   fast_finish: true
 
-before_script:
+install:
+  - composer install
+
+before_install:
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - mkdir var/jwt
   - cp scripts/private.pem var/jwt/private.pem

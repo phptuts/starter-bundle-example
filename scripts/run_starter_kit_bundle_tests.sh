@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-composer install
 php bin/console doctrine:database:drop --env=starter_kit_test --force
 php bin/console doctrine:database:create --env=starter_kit_test
 php bin/console doctrine:schema:update --env=starter_kit_test --force
