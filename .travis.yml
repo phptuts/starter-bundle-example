@@ -23,15 +23,20 @@ matrix:
       env: SYMFONY_VERSION="3.3.*"
   fast_finish: true
 
-install:
-  - composer install
+
 
 before_install:
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - mkdir var/jwt
   - cp scripts/private.pem var/jwt/private.pem
   - cp scripts/public.pem var/jwt/public.pem
+
+install:
+  - composer install
+  
+after_install:
   - sh scripts/run_before_travis.sh
+
 
 # In phpunit.xml.dist, tests annotated with "@group mysql" are excluded,
 # revert this.
