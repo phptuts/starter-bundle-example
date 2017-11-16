@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+cp app/config/parameters.yml.dist app/config/parameters.yml
+composer install
 php bin/console doctrine:database:drop --env=starter_kit_test --force
 php bin/console doctrine:database:create --env=starter_kit_test
 php bin/console doctrine:schema:update --env=starter_kit_test --force
