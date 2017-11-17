@@ -36,7 +36,7 @@
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
         "snc/redis-bundle": "^2.0",
-        "start-kit-symfony/start-bundle": "dev-master",
+        "start-kit-symfony/start-bundle": "1.0.1",
         "symfony/css-selector": "^3.3",
         "symfony/monolog-bundle": "^3.1.0",
         "symfony/polyfill-apcu": "^1.0",
