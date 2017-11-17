@@ -1,15 +1,22 @@
-# A Starter Kit For Symfony
+# Starter Bundle Symfony Example
 
-[![Build Status](https://travis-ci.org/phptuts/starterkitforsymfony.svg?branch=master)](https://travis-ci.org/phptuts/starterkitforsymfony) [![Code Climate](https://codeclimate.com/github/phptuts/starterkitforsymfony/badges/gpa.svg)](https://codeclimate.com/github/phptuts/starterkitforsymfony) [![Code Climate](https://codeclimate.com/github/phptuts/starterkitforsymfony/badges/coverage.svg)](https://codeclimate.com/github/phptuts/starterkitforsymfony)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/phptuts/starter-bundle-example.svg?branch=master)](https://travis-ci.org/phptuts/starter-bundle-example)
 
+## [Starter Bundle For Symfony](https://github.com/phptuts/StarterBundleForSymfony)
 
+- Security
+- Registration
+- Security
+- FileUploads to s3
+- Facebook login
+- Google Login
+- Refresh Tokens
+- JWT Tokens Authentication
+- Stateless Authentication using cookies
+- Everything is interfaced so you can replace what you need.
 
-This symfony project is about helping you get up and running symfony, quickly.  Everything has been has been setup and coded so that all you should have to do is add your business logic. We've documented most of the projects so that if you need to change anything you should be able to without having to dig through a ton of code.  
+## Setup Instructions
 
-### [Documentation](https://phptuts.github.io/starterkitforsymfony/)
-
-### [Example Wesbite](http://skfsp.info/)
 
 ### Things you will need before setting up.
 
@@ -98,8 +105,14 @@ Then your done if you have any questions just ask!!! :)
 
 ## Running Tests
 
-This will run all the tests 
+This will run all the tests for app bundle
 
 ``` 
-    sh scripts/run_tests.sh
+sh scripts/run_test_app.sh
+```
+
+This will run all the tests for the starter bundle
+
+``` 
+sh scripts/run_start_kit_bundle_tests.sh
 ```
