@@ -24,7 +24,7 @@ matrix:
   fast_finish: true
 
 install:
-  - composer update --prefer-dist 
+  - composer install --prefer-dist
 
 before_script:
   - cp app/config/parameters.yml.dist app/config/parameters.yml
