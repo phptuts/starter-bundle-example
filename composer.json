@@ -27,6 +27,7 @@
         "doctrine/orm": "^2.5",
         "egulias/email-validator": "^2.1",
         "facebook/graph-sdk": "^5.5",
+        "google/apiclient": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "incenteev/composer-parameter-handler": "^2.0",
         "javiereguiluz/easyadmin-bundle": "^1.17",
