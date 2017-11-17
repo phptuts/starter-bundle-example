@@ -32,6 +32,7 @@ before_script:
   - cp scripts/private.pem var/jwt/private.pem
   - cp scripts/public.pem var/jwt/public.pem
   - sh scripts/run_before_travis.sh
+  - composer dump-autoload
 
 # In phpunit.xml.dist, tests annotated with "@group mysql" are excluded,
 # revert this.
