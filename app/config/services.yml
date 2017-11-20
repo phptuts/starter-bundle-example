@@ -35,6 +35,25 @@ services:
             - '@snc_redis.default'
 
 
+    #Service
+
+    AppBundle\Service\UserService:
+        class: AppBundle\Service\UserService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@security.encoder_factory.generic'
+            - '@event_dispatcher'
+            - '%starter_kit_start.refresh_token_ttl%'
+            - '%starter_kit_start.user_class%'
+
+    AppBundle\Service\DatabaseTokenService:
+        class: AppBundle\Service\DatabaseTokenService
+        arguments:
+            - '@AppBundle\Service\UserService'
+            - '%app.jws_ttl%'
+
+    StarterKit\StartBundle\Service\AuthTokenServiceInterface: '@AppBundle\Service\DatabaseTokenService'
+
     # EVENT LISTENERS
     AppBundle\Listener\ExceptionListener:
         class: AppBundle\Listener\ExceptionListener
