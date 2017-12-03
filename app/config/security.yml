@@ -74,6 +74,7 @@ security:
 
         api:
             pattern: ^/api*
+            anonymous: ~
             stateless: true
             provider: token
             guard:
