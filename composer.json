@@ -21,6 +21,7 @@
     },
     "require": {
         "php": ">=5.5.9",
+        "adam-paterson/oauth2-slack": "^1.1",
         "aws/aws-sdk-php": "^3.30",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-migrations-bundle": "^1.0",

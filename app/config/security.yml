@@ -9,10 +9,18 @@ security:
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        app_proivder:
-            entity:
-                class: AppBundle:User
-                property: email
+        email:
+            id: StarterKit\StartBundle\Security\Provider\EmailProviderInterface
+        slack:
+            id: StarterKit\StartBundle\Security\Provider\SlackProvider #TODO FIX TO USE INTERFACE
+        token:
+            id: StarterKit\StartBundle\Security\Provider\TokenProviderInterface
+        facebook:
+            id: StarterKit\StartBundle\Security\Provider\FacebookProviderInterface
+        google:
+            id: StarterKit\StartBundle\Security\Provider\GoogleProviderInterface
+        refresh:
+            id: StarterKit\StartBundle\Security\Provider\RefreshTokenProviderInterface
 
     role_hierarchy:
         ROLE_ADMIN:  [ROLE_USER, ROLE_ALLOWED_TO_SWITCH]
@@ -24,13 +32,62 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        facebook:
+            pattern: ^/access-tokens/facebook
+            stateless: true
+            provider: facebook
+            guard:
+                authenticators:
+                    - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
+
+        google:
+            pattern: ^/access-tokens/google
+            stateless: true
+            provider: google
+            guard:
+                authenticators:
+                    - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
+
+        slack:
+            pattern: ^/oauth/slack*
+            stateless: true
+            provider: slack
+            guard:
+                authenticators:
+                    - StarterKit\StartBundle\Security\Guard\OAuthGuardInterface
+
+        refresh:
+            pattern: ^/access-tokens/refresh
+            stateless: true
+            provider: refresh
+            guard:
+                authenticators:
+                    - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
+
+        login:
+            pattern: ^/login_check
+            stateless: true
+            provider: email
+            guard:
+                authenticators:
+                    - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
+
+        api:
+            pattern: ^/api*
+            stateless: true
+            provider: token
+            guard:
+                authenticators:
+                    - StarterKit\StartBundle\Security\Guard\StateLess\ApiGuardInterface
+
         main:
             pattern: ^/*
             anonymous: ~
+            provider: token
             stateless: true
             guard:
                 authenticators:
-                    - StarterKit\StartBundle\Security\Guard\SimpleGuardInterface
+                    - StarterKit\StartBundle\Security\Guard\StateLess\WebsiteGuardInterface
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }

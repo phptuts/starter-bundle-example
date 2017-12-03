@@ -1,6 +1,3 @@
-login_check:
-    path: login_check
-
 main:
     resource: '@AppBundle/Controller/'
     type: annotation

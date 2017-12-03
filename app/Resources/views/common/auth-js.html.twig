@@ -5,12 +5,12 @@
      * This sends the type facebook / google and the auth token they use.
      *
      */
-    function authenticateWithToken(token, type) {
+    function authenticateWithToken(token, url) {
         $.blockUI({message: 'We are logging you right now!! :)'});
 
         $.ajax({
-            url: '/login_check',
-            data: JSON.stringify({type, token}),
+            url: url,
+            data: JSON.stringify({token}),
             contentType: 'application/json',
             type: 'POST',
             success: function () {
