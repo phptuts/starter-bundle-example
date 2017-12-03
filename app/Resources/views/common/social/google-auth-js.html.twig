@@ -16,7 +16,8 @@
     function attachSignin(element) {
         auth2.attachClickHandler(element, {},
             function(googleUser) {
-                authenticateWithToken(googleUser.getAuthResponse().id_token, 'google');
+                authenticateWithToken(googleUser.getAuthResponse().id_token,
+                    '{{ path('_access_doc_oauth', {'provider': 'google'}) }}');
 
             }, function(error) {
                 console.log(error);

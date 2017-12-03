@@ -74,21 +74,9 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->userService->registerUser($form->getData());
 
-            $model = $this->authResponseService->createResponseAuthModel($user);
-
             $response = $this->redirectToRoute('homepage');
-            $response->headers->setCookie(
-                new Cookie(
-                    AuthResponseService::AUTH_COOKIE,
-                    $model->getAuthToken(),
-                    $model->getTokenExpirationTimeStamp(),
-                    null,
-                    false,
-                    false
-                )
-            );
 
-            return $response;
+            return $this->authResponseService->authenticateResponse($user, $response);
         }
 
         return $this->render('register/register.html.twig', [

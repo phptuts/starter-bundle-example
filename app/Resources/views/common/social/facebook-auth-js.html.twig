@@ -10,7 +10,8 @@
         $("#facebook_login_btn").on("click", function () {
             FB.login(function (response) {
                 if (response.authResponse) {
-                    authenticateWithToken(response.authResponse.accessToken, 'facebook');
+                    authenticateWithToken(response.authResponse.accessToken,
+                        '{{ path('_access_doc_oauth', {'provider': 'facebook'}) }}');
                 } else {
 
                 }

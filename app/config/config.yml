@@ -45,6 +45,7 @@ twig:
         facebook_api_version: '%app.facebook_api_version%'
         email: '%app.from_email%'
         google_client_id: '%app.google_client_id%'
+        slack_client_id: '%app.slack_client_id%'
 
 # Doctrine Configuration
 doctrine:
@@ -135,6 +136,9 @@ starter_kit_start:
     aws_secret: '%app.aws_secret%'
     aws_region: '%app.aws_region%'
     aws_s3_bucket_name: '%app.aws_region%'
+
+    slack_client_secret: '%app.slack_client_secret%'
+    slack_client_id: '%app.slack_client_id%'
 
 easy_admin:
     entities:
