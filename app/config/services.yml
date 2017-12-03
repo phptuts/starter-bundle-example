@@ -34,6 +34,15 @@ services:
         arguments:
             - '@snc_redis.default'
 
+    #Github Client
+    AppBundle\Client\LinkedInClient:
+        class: AppBundle\Client\LinkedInClient
+        arguments:
+            - '@GuzzleHttp\Client'
+            - '%app.linked_in_client_secret%'
+            - '%app.linked_in_client_id%'
+
+
 
     # EVENT LISTENERS
     AppBundle\Listener\ExceptionListener:

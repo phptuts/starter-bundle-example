@@ -19,6 +19,8 @@ security:
             id: StarterKit\StartBundle\Security\Provider\FacebookProviderInterface
         google:
             id: StarterKit\StartBundle\Security\Provider\GoogleProviderInterface
+        linkedin:
+            id: AppBundle\Security\Provider\LinkedInProvider
         refresh:
             id: StarterKit\StartBundle\Security\Provider\RefreshTokenProviderInterface
 
@@ -47,6 +49,14 @@ security:
             guard:
                 authenticators:
                     - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
+
+        github:
+            pattern: ^/oauth/linkedin*
+            stateless: true
+            provider: linkedin
+            guard:
+                authenticators:
+                    - StarterKit\StartBundle\Security\Guard\OAuthGuardInterface
 
         slack:
             pattern: ^/oauth/slack*

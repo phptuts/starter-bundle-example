@@ -6,7 +6,7 @@ use StarterKit\StartBundle\Entity\BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="StarterKit\StartBundle\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @ORM\Table(name="User")
  * @ORM\HasLifecycleCallbacks()
  * @ORM\Table(name="User", indexes={
@@ -15,12 +15,37 @@ use Doctrine\ORM\Mapping as ORM;
  *     @ORM\Index(name="idk_slack_user_Id", columns={"slack_user_id"}),
  *     @ORM\Index(name="idk_facebook_user_id", columns={"facebook_user_id"}),
  *     @ORM\Index(name="idk_forget_password_token", columns={"forget_password_token"}),
- *     @ORM\Index(name="idk_refresh_token", columns={"refresh_token"})
+ *     @ORM\Index(name="idk_refresh_token", columns={"refresh_token"}),
+ *     @ORM\Index(name="idk_linked_in_user_id", columns={"linked_in_user_id"})
  * })
  * Class User
  * @package AppBundle\Entity
  */
 class User extends BaseUser
 {
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="linked_in_user_id", type="string", nullable=true)
+     */
+    protected $linkedInUserId;
 
+    /**
+     * @return string
+     */
+    public function getLinkedInUserId()
+    {
+        return $this->linkedInUserId;
+    }
+
+    /**
+     * @param string $linkedInUserId
+     * @return User
+     */
+    public function setLinkedInUserId($linkedInUserId)
+    {
+        $this->linkedInUserId = $linkedInUserId;
+
+        return $this;
+    }
 }

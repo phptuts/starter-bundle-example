@@ -53,3 +53,7 @@ parameters:
 
     app.slack_client_secret: ''
     app.slack_client_id: ''
+
+    app.linked_in_client_secret: ''
+    app.linked_in_client_id: ''
+    app.linked_in_redirect_url: ''

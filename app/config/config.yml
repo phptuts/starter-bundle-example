@@ -46,6 +46,8 @@ twig:
         email: '%app.from_email%'
         google_client_id: '%app.google_client_id%'
         slack_client_id: '%app.slack_client_id%'
+        linked_in_client_id: '%app.linked_in_client_id%'
+        linked_in_redirect_uri: '%app.linked_in_redirect_url%'
 
 # Doctrine Configuration
 doctrine:
