@@ -50,7 +50,7 @@ security:
                 authenticators:
                     - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
 
-        github:
+        linkedin:
             pattern: ^/oauth/linkedin*
             stateless: true
             provider: linkedin
