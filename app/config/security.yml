@@ -12,7 +12,7 @@ security:
         email:
             id: StarterKit\StartBundle\Security\Provider\EmailProviderInterface
         slack:
-            id: StarterKit\StartBundle\Security\Provider\SlackProvider #TODO FIX TO USE INTERFACE
+            id: StarterKit\StartBundle\Security\Provider\SlackProviderInterface
         token:
             id: StarterKit\StartBundle\Security\Provider\TokenProviderInterface
         facebook:
