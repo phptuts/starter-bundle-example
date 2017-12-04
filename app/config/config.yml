@@ -135,7 +135,7 @@ starter_kit_start:
     aws_key: '%app.aws_key%'
     aws_secret: '%app.aws_secret%'
     aws_region: '%app.aws_region%'
-    aws_s3_bucket_name: '%app.aws_region%'
+    aws_s3_bucket_name: '%app.aws_s3_bucket_name%'
 
     slack_client_secret: '%app.slack_client_secret%'
     slack_client_id: '%app.slack_client_id%'
