@@ -74,7 +74,7 @@ security:
 
         api:
             pattern: ^/api*
-            anonymous: ~
+            anonymous: true
             stateless: true
             provider: token
             guard:
@@ -83,7 +83,7 @@ security:
 
         main:
             pattern: ^/*
-            anonymous: ~
+            anonymous: true
             provider: token
             stateless: true
             guard:
@@ -92,5 +92,4 @@ security:
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: /*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
