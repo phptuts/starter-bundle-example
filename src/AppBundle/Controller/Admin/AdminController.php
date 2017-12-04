@@ -35,10 +35,11 @@ class AdminController extends BaseAdminController
     public function prePersistEntity($entity)
     {
         if ($entity instanceof BaseUser) {
-            $entity = $this->encodePasswordForUser($entity);
-            $entity->setEnabled(true)
+            $entity->setPlainPassword(base64_encode(random_bytes(20)))
+                ->setEnabled(true)
                 ->setSource(UserService::SOURCE_TYPE_ADMIN)
                 ->setRoles(['ROLE_USER']);
+            $entity = $this->encodePasswordForUser($entity);
         }
 
         parent::prePersistEntity($entity);
@@ -66,7 +67,6 @@ class AdminController extends BaseAdminController
      */
     private function encodePasswordForUser(BaseUser $user)
     {
-        $user->setPlainPassword(base64_encode(random_bytes(20)));
         $encoder = $this->encoderFactory->getEncoder($user);
         $user->setPassword($encoder->encodePassword($user->getPlainPassword(), $user->getSalt()));
 
