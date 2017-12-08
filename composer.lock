@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c8d45e8e39c566c0a3528eb93785ef1",
+    "content-hash": "bfc107998dfc198aa5d5c3b05ecb46f3",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2435,56 +2435,6 @@
             "time": "2017-06-05T06:31:10+00:00"
         },
         {
-            "name": "predis/predis",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nrk/predis.git",
-                "reference": "0e17edbefb50c6cbd1acc4a6f6ef06399deb1af2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/0e17edbefb50c6cbd1acc4a6f6ef06399deb1af2",
-                "reference": "0e17edbefb50c6cbd1acc4a6f6ef06399deb1af2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.8"
-            },
-            "suggest": {
-                "ext-curl": "Allows access to Webdis when paired with phpiredis",
-                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Predis\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniele Alessandri",
-                    "email": "suppakilla@gmail.com",
-                    "homepage": "http://clorophilla.net"
-                }
-            ],
-            "description": "Flexible and feature-complete Redis client for PHP and HHVM",
-            "homepage": "http://github.com/nrk/predis",
-            "keywords": [
-                "nosql",
-                "predis",
-                "redis"
-            ],
-            "time": "2016-06-01T22:06:21+00:00"
-        },
-        {
             "name": "psr/cache",
             "version": "1.0.1",
             "source": {
@@ -2942,16 +2892,16 @@
         },
         {
             "name": "start-kit-symfony/start-bundle",
-            "version": "dev-master",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phptuts/StarterBundleForSymfony.git",
-                "reference": "3f2c2e875f9ea36994e9fe82831ee7e914538860"
+                "reference": "2e7b2e9e9aff10b98203534c0a99614ee9fd12d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phptuts/StarterBundleForSymfony/zipball/3f2c2e875f9ea36994e9fe82831ee7e914538860",
-                "reference": "3f2c2e875f9ea36994e9fe82831ee7e914538860",
+                "url": "https://api.github.com/repos/phptuts/StarterBundleForSymfony/zipball/2e7b2e9e9aff10b98203534c0a99614ee9fd12d6",
+                "reference": "2e7b2e9e9aff10b98203534c0a99614ee9fd12d6",
                 "shasum": ""
             },
             "require": {
@@ -2961,27 +2911,13 @@
                 "doctrine/orm": "^2.5",
                 "egulias/email-validator": "^2.1",
                 "facebook/graph-sdk": "^5.5",
+                "google/apiclient": "^2.0",
                 "guzzlehttp/guzzle": "^6.3",
-                "incenteev/composer-parameter-handler": "^2.0",
                 "namshi/jose": "^7.2",
                 "nelmio/api-doc-bundle": "^2.13",
                 "php": ">=5.5.9",
-                "sensio/framework-extra-bundle": "~2.3|~3.0|4.0.x|~5.0",
-                "symfony/config": "~2.3|~3.0|~4.0",
-                "symfony/dependency-injection": "~2.3|~3.0|~4.0",
-                "symfony/doctrine-bridge": "~2.3|~3.0|~4.0",
-                "symfony/event-dispatcher": "~2.3|~3.0|~4.0",
-                "symfony/form": "~2.3|~3.0|~4.0",
-                "symfony/framework-bundle": "~2.3|~3.0|~4.0",
-                "symfony/http-foundation": "~2.3|~3.0|~4.0",
-                "symfony/http-kernel": "~2.3|~3.0|~4.0",
-                "symfony/security-bundle": "~2.3|~3.0|~4.0",
-                "symfony/translation": "~2.3|~3.0|~4.0",
-                "symfony/twig-bridge": "^2.3.4|~3.0|~4.0",
-                "symfony/twig-bundle": "~2.3|~3.0|~4.0",
-                "symfony/validator": "~2.3|~3.0|~4.0",
-                "twig/extensions": "~1.0",
-                "twig/twig": "~1.26|~2.0"
+                "sensio/framework-extra-bundle": "3.0.*",
+                "symfony/symfony": "3.3.*"
             },
             "require-dev": {
                 "doctrine/doctrine-fixtures-bundle": "^2.3",
@@ -3016,7 +2952,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2017-11-14T00:48:14+00:00"
+            "time": "2017-12-08T05:32:16+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6281,9 +6217,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "start-kit-symfony/start-bundle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
