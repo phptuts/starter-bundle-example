@@ -16,7 +16,6 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-            new Snc\RedisBundle\SncRedisBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new StarterKit\StartBundle\StarterKitStartBundle(),

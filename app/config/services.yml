@@ -28,13 +28,6 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
-    # Third Party Bundle Services
-    Doctrine\Common\Cache\PredisCache:
-        class: '%snc_redis.doctrine_cache_predis.class%'
-        arguments:
-            - '@snc_redis.default'
-
-
     # EVENT LISTENERS
     AppBundle\Listener\ExceptionListener:
         class: AppBundle\Listener\ExceptionListener
