@@ -29,7 +29,7 @@ class BaseTestCase extends \StarterKit\StartBundle\Tests\BaseTestCase
     /**
      * @link https://github.com/mockery/mockery/issues/376
      */
-    protected function tearDown()
+    public function tearDown()
     {
         if ($container = \Mockery::getContainer()) {
             $this->addToAssertionCount($container->mockery_getExpectationCount());
