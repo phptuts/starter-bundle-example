@@ -27,6 +27,7 @@ class UserListenerTest extends BaseTestCase
 
     public function setUp()
     {
+        parent::setUp();
         $this->twig = $this->getContainer()->get('twig');
         $this->mailer = \Mockery::mock(\Swift_Mailer::class);
         $this->userListener = new UserListener($this->twig, $this->mailer, 'email@gmail.com');
