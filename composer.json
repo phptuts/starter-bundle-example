@@ -32,7 +32,7 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "javiereguiluz/easyadmin-bundle": "^1.17",
         "namshi/jose": "^7.2",
-        "nelmio/api-doc-bundle": "^2.13",
+        "nelmio/api-doc-bundle": "~3.0@beta",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
         "start-kit-symfony/start-bundle": "dev-master",
