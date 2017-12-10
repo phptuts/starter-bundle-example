@@ -1,11 +1,31 @@
 <?php
 
-namespace Tests;
+namespace Tests\AppBundle;
 
-use Liip\FunctionalTestBundle\Test\WebTestCase;
 
-class BaseTestCase extends WebTestCase
+use PHPUnit\Framework\Assert;
+use Symfony\Bundle\FrameworkBundle\Client;
+
+class BaseTestCase extends \StarterKit\StartBundle\Tests\BaseTestCase
 {
+    public function setUp()
+    {
+        $this->environment = 'test';
+        parent::setUp();
+    }
+
+    /**
+     * Asserts the response's status code
+     *
+     * @param $statusCode
+     * @param Client $client
+     */
+    public function assertStatusCode($statusCode, Client $client)
+    {
+        $response = $client->getResponse();
+        Assert::assertEquals($statusCode, $response->getStatusCode());
+    }
+
     /**
      * @link https://github.com/mockery/mockery/issues/376
      */

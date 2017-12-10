@@ -117,9 +117,11 @@ starter_kit_start:
 easy_admin:
     entities:
         Users:
+            controller: AppBundle\Controller\Admin\UserController
             class: AppBundle\Entity\User
             disabled_actions: ['delete']
             form:
+                form_options: { validation_groups: ['user_default_validation_group', 'user_plain_password'] }
                 fields:
                     - displayName
                     - email

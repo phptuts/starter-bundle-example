@@ -3,15 +3,15 @@
 namespace Tests\AppBundle\Controller;
 
 use AppBundle\Entity\User;
-use Liip\FunctionalTestBundle\Test\WebTestCase;
 use PHPUnit\Framework\Assert;
 use StarterKit\StartBundle\Repository\UserRepository;
 use StarterKit\StartBundle\Service\AuthResponseService;
 use StarterKit\StartBundle\Tests\Controller\RequestTrait;
 use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\HttpFoundation\Request;
+use Tests\AppBundle\BaseTestCase;
 
-class ForgetPasswordWorkFlowTest extends WebTestCase
+class ForgetPasswordWorkFlowTest extends BaseTestCase
 {
 
     use RequestTrait;
@@ -42,7 +42,7 @@ class ForgetPasswordWorkFlowTest extends WebTestCase
         $crawler = $client->submit($form);
 
         $this->assertStatusCode(200, $client);
-        $this->assertValidationErrors(['data.email', 'data.plainPassword'], $client->getContainer());
+        Assert::assertEquals(2, $crawler->filter('.has-error')->count());
 
         $form = $crawler->selectButton('Register')->form();
         $form->setValues(['register[email]' => self::EXAMPLE_USER_EMAIL, 'register[plainPassword]' => 'password']);
@@ -70,7 +70,7 @@ class ForgetPasswordWorkFlowTest extends WebTestCase
         $form = $crawler->selectButton('Forget Password')->form();
         $crawler = $client->submit($form);
         $this->assertStatusCode(200, $client);
-        $this->assertValidationErrors(['data.email'], $client->getContainer());
+        Assert::assertEquals(1, $crawler->filter('.has-error')->count());
 
         // Submitting form with email that does not exist in our system and testing that the form shows an error
         $form = $crawler->selectButton('Forget Password')->form();
@@ -117,9 +117,9 @@ class ForgetPasswordWorkFlowTest extends WebTestCase
 
         // Submitting password that should be too short and testing validation
         $form->setValues(['reset_password[plainPassword]' => 'sd']);
-        $client->submit($form);
+        $crawler = $client->submit($form);
         $this->assertStatusCode(200, $client);
-        $this->assertValidationErrors(['data.plainPassword'], $client->getContainer());
+        Assert::assertEquals(1, $crawler->filter('.has-error')->count());
 
         // Submitting valid password
         $form->setValues(['reset_password[plainPassword]' => 'new_password']);
@@ -156,7 +156,7 @@ class ForgetPasswordWorkFlowTest extends WebTestCase
         );
 
 
-        $crawler = $client->request('GET', '/account-settings/information');
+        $client->request('GET', '/account-settings/information');
         $this->assertStatusCode(200, $client);
 
 

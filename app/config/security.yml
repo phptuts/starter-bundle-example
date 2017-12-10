@@ -38,7 +38,7 @@ security:
             provider: facebook
             guard:
                 authenticators:
-                    - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
+                    - StarterKit\StartBundle\Security\Guard\Login\AccessTokenGuardInterface
 
         google:
             pattern: ^/access-tokens/google
@@ -46,7 +46,7 @@ security:
             provider: google
             guard:
                 authenticators:
-                    - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
+                    - StarterKit\StartBundle\Security\Guard\Login\AccessTokenGuardInterface
 
         slack:
             pattern: ^/oauth/slack*
@@ -54,7 +54,7 @@ security:
             provider: slack
             guard:
                 authenticators:
-                    - StarterKit\StartBundle\Security\Guard\OAuthGuardInterface
+                    - StarterKit\StartBundle\Security\Guard\OAuth\OAuthGuardInterface
 
         refresh:
             pattern: ^/access-tokens/refresh
@@ -62,7 +62,7 @@ security:
             provider: refresh
             guard:
                 authenticators:
-                    - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
+                    - StarterKit\StartBundle\Security\Guard\Login\AccessTokenGuardInterface
 
         login:
             pattern: ^/login_check
@@ -70,7 +70,7 @@ security:
             provider: email
             guard:
                 authenticators:
-                    - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
+                    - StarterKit\StartBundle\Security\Guard\Login\EmailGuardInterface
 
         api:
             pattern: ^/api*
