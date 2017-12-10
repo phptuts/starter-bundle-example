@@ -6,7 +6,7 @@ use AppBundle\Entity\User;
 use AppBundle\Listener\UserListener;
 use Mockery\Mock;
 use StarterKit\StartBundle\Event\UserEvent;
-use Tests\BaseTestCase;
+use Tests\AppBundle\BaseTestCase;
 
 class UserListenerTest extends BaseTestCase
 {
