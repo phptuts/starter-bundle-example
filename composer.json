@@ -32,6 +32,7 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "javiereguiluz/easyadmin-bundle": "^1.17",
         "namshi/jose": "^7.2",
+        "nelmio/alice": "^3.1",
         "nelmio/api-doc-bundle": "~3.0@beta",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
@@ -48,7 +49,6 @@
         "codeclimate/php-test-reporter": "^0.4.4",
         "doctrine/doctrine-fixtures-bundle": "^2.3",
         "mockery/mockery": "^0.9.9",
-        "nelmio/alice": "^2.3",
         "phpunit/phpunit": "^6.2",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0"
