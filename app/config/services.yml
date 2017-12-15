@@ -28,32 +28,6 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
-    # Third Party Bundle Services
-    Doctrine\Common\Cache\PredisCache:
-        class: '%snc_redis.doctrine_cache_predis.class%'
-        arguments:
-            - '@snc_redis.default'
-
-
-    #Service
-
-    AppBundle\Service\UserService:
-        class: AppBundle\Service\UserService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - '@security.encoder_factory.generic'
-            - '@event_dispatcher'
-            - '%starter_kit_start.refresh_token_ttl%'
-            - '%starter_kit_start.user_class%'
-
-    AppBundle\Service\DatabaseTokenService:
-        class: AppBundle\Service\DatabaseTokenService
-        arguments:
-            - '@AppBundle\Service\UserService'
-            - '%app.jws_ttl%'
-
-    StarterKit\StartBundle\Service\AuthTokenServiceInterface: '@AppBundle\Service\DatabaseTokenService'
-
     # EVENT LISTENERS
     AppBundle\Listener\ExceptionListener:
         class: AppBundle\Listener\ExceptionListener

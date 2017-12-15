@@ -68,44 +68,22 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
-        # enable query caching
-        query_cache_driver:
-            type: redis
-            id: Doctrine\Common\Cache\PredisCache
-        result_cache_driver:
-            type: redis
-            id: Doctrine\Common\Cache\PredisCache
-
-snc_redis:
-   clients:
-       default:
-           type: predis
-           alias: default
-           dsn: redis://localhost
-   doctrine:
-       metadata_cache:
-           client: default
-           entity_manager: default          # the name of your entity_manager connection
-           document_manager: default        # the name of your document_manager connection
-       result_cache:
-           client: default
-           entity_manager: [default, read]  # you may specify multiple entity_managers
-       query_cache:
-           client: default
-           entity_manager: default
-
 
 nelmio_api_doc:
-    name: 'Symfony Starter Api'
-    sandbox:
-        authentication:
-            name: Authorization
-            delivery:  http
-            type: bearer
-        body_format:
-            formats: [json, form]
-            default_format: json
+    routes:
+        path_patterns: # an array of regexps
+            - ^/(api(?!/doc))
+            - ^/oauth
+            - ^/login_check
+            - ^/access-tokens
 
+
+    models: { use_jms: false }
+    documentation:
+        info:
+            title: 'Symfony Starter Api'
+            description: 'Our Symfony Starter Kit Api Documentation.'
+            version: 1.0.0
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -113,6 +91,7 @@ swiftmailer:
     host: '%app.mailer_host%'
     username: '%app.mailer_user%'
     password: '%app.mailer_password%'
+    disable_delivery: true
 
 starter_kit_start:
 
@@ -135,7 +114,7 @@ starter_kit_start:
     aws_key: '%app.aws_key%'
     aws_secret: '%app.aws_secret%'
     aws_region: '%app.aws_region%'
-    aws_s3_bucket_name: '%app.aws_region%'
+    aws_s3_bucket_name: '%app.aws_s3_bucket_name%'
 
     slack_client_secret: '%app.slack_client_secret%'
     slack_client_id: '%app.slack_client_id%'
@@ -143,9 +122,11 @@ starter_kit_start:
 easy_admin:
     entities:
         Users:
+            controller: AppBundle\Controller\Admin\UserController
             class: AppBundle\Entity\User
             disabled_actions: ['delete']
             form:
+                form_options: { validation_groups: ['user_default_validation_group', 'user_plain_password'] }
                 fields:
                     - displayName
                     - email

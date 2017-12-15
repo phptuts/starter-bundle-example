@@ -23,3 +23,9 @@ doctrine:
             default:
                 driver:   pdo_sqlite
                 path:     '%kernel.cache_dir%/test.db'
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        # this for liip_functional_test.validator to make that public
+        public: true
