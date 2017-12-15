@@ -32,18 +32,14 @@ services:
     AppBundle\Listener\ExceptionListener:
         class: AppBundle\Listener\ExceptionListener
         arguments:
-            - '@twig'
-            - '@monolog.logger'
-            - '%app.from_email%'
+            $email: '%app.from_email%'
         tags:
             - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
 
     AppBundle\Listener\UserListener:
         class: AppBundle\Listener\UserListener
         arguments:
-            - '@twig'
-            - '@mailer'
-            - '%app.from_email%'
+            $fromEmail: '%app.from_email%'
         tags:
             - { name: kernel.event_listener, event: 'register_event', method: onRegister }
             - { name: kernel.event_listener, event: 'forget_password_event', method: onForgetPassword }
