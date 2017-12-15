@@ -72,6 +72,11 @@ security:
                 authenticators:
                     - StarterKit\StartBundle\Security\Guard\Login\EmailGuardInterface
 
+        login_page:
+            pattern: ^/login$
+            stateless: true
+            security: false
+
         api:
             pattern: ^/api*
             anonymous: true

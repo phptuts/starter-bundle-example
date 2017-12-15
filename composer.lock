@@ -3050,12 +3050,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phptuts/StarterBundleForSymfony.git",
-                "reference": "fff63fb436b3ea28e69b9619582dec455a4e75a6"
+                "reference": "d545a964b1dcf26ad6f553650c4f2af2c617db0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phptuts/StarterBundleForSymfony/zipball/fff63fb436b3ea28e69b9619582dec455a4e75a6",
-                "reference": "fff63fb436b3ea28e69b9619582dec455a4e75a6",
+                "url": "https://api.github.com/repos/phptuts/StarterBundleForSymfony/zipball/d545a964b1dcf26ad6f553650c4f2af2c617db0e",
+                "reference": "d545a964b1dcf26ad6f553650c4f2af2c617db0e",
                 "shasum": ""
             },
             "require": {
@@ -3068,20 +3068,28 @@
                 "google/apiclient": "^2.0",
                 "guzzlehttp/guzzle": "^6.3",
                 "namshi/jose": "^7.2",
-                "php": ">=5.5.9",
-                "sensio/framework-extra-bundle": "3.0.*",
+                "nelmio/api-doc-bundle": "~3.0@beta",
+                "php": ">=7.0.0",
+                "sensio/framework-extra-bundle": "3.0.*|^4.0",
+                "symfony/asset": "^4.0 | ^3.4",
                 "symfony/event-dispatcher": "~3.0|^4.0",
+                "symfony/expression-language": "^4.0 | ^3.4",
                 "symfony/form": "~3.0|^4.0",
                 "symfony/framework-bundle": "~3.0|^4.0",
+                "symfony/monolog-bundle": "^3.1",
                 "symfony/security-bundle": "3.4.*|^4.0",
+                "symfony/templating": "^4.0 | ^3.4",
                 "symfony/twig-bridge": "~3.0|^4.0",
-                "symfony/validator": "~3.0|^4.0"
+                "symfony/twig-bundle": "^4.0 |  ^3.4",
+                "symfony/validator": "~3.0|^4.0",
+                "symfony/var-dumper": "^4.0 | ^3.4",
+                "twig/twig": "^2.4"
             },
             "require-dev": {
                 "doctrine/doctrine-fixtures-bundle": "^2.3",
                 "liip/functional-test-bundle": "^1.8",
                 "mockery/mockery": "^0.9.9",
-                "nelmio/alice": "^2.3",
+                "nelmio/alice": "^3.1",
                 "phpunit/phpunit": "^6.2",
                 "sensio/generator-bundle": "^3.0",
                 "symfony/phpunit-bridge": "^3.0"
@@ -3089,11 +3097,8 @@
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
-                    "StarterKit\\StartBundle\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
+                    "StarterKit\\StartBundle\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -3106,11 +3111,11 @@
                 }
             ],
             "description": "Symfony StartBundle With User and Security",
-            "homepage": "http://skfsp.info",
+            "homepage": "http://skbfsp.info",
             "keywords": [
                 "User management"
             ],
-            "time": "2017-12-10T06:14:06+00:00"
+            "time": "2017-12-15T05:10:27+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
