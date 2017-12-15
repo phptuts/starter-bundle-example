@@ -80,7 +80,7 @@ openssl rsa -pubout -in var/jwt/private.pem -out var/jwt/public.pem
 ```
 14. Run  composer install
 15. Composer will ask for all the stuff you setup in the pre steps + jwt pass phrase & database info.  Homestead root 
-password stuff is below.  You can always change this in the parameters.yml, fyi.
+password stuff is below.  You can always change this in the parameters.yml, fyi.  This is where you will need all the credentials you got in a previous step.  They all will go into your paramters.yml file.
 here:
 ``` 
     app.database_user: homestead
