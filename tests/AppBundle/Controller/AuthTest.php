@@ -8,12 +8,14 @@ use AppBundle\Service\DatabaseTokenService;
 use AppBundle\Service\UserService;
 use PHPUnit\Framework\Assert;
 use StarterKit\StartBundle\Service\AuthResponseService;
-use StarterKit\StartBundle\Tests\Controller\BaseApiTestCase;
 use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\HttpFoundation\Request;
+use Tests\AppBundle\BaseTestCase;
 
-class AuthTest extends BaseApiTestCase
+class AuthTest extends BaseTestCase
 {
+    use RequestTrait;
+
     /**
      * @var DatabaseTokenService
      */
@@ -25,7 +27,7 @@ class AuthTest extends BaseApiTestCase
         $this->environment = 'test';
         $userService = new UserService(
             $this->getContainer()->get('doctrine.orm.entity_manager'),
-            $this->getContainer()->get('security.encoder_factory'),
+            $this->getContainer()->get('security.password_encoder'),
             $this->getContainer()->get('event_dispatcher'),
             $this->getContainer()->getParameter('starter_kit_start.refresh_token_ttl'),
             $this->getContainer()->getParameter('starter_kit_start.user_class')
