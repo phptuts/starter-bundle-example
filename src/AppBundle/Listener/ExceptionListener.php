@@ -2,8 +2,7 @@
 
 namespace AppBundle\Listener;
 
-use Monolog\Logger;
-use Symfony\Component\Finder\Exception\AccessDeniedException;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
@@ -21,7 +20,7 @@ class ExceptionListener
     private $twig;
 
     /**
-     * @var Logger
+     * @var LoggerInterface
      */
     private $logger;
 
@@ -30,7 +29,7 @@ class ExceptionListener
      */
     private $email;
 
-    public function __construct(\Twig_Environment $twig, Logger $logger, $email)
+    public function __construct(\Twig_Environment $twig, LoggerInterface $logger, $email)
     {
         $this->twig = $twig;
         $this->logger = $logger;
