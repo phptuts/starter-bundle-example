@@ -4,7 +4,6 @@ namespace Tests\AppBundle\Controller;
 
 use PHPUnit\Framework\Assert;
 use StarterKit\StartBundle\Service\AuthResponseService;
-use StarterKit\StartBundle\Tests\Controller\RequestTrait;
 use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

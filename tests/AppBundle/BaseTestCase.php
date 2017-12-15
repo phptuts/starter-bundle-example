@@ -5,14 +5,47 @@ namespace Tests\AppBundle;
 
 use PHPUnit\Framework\Assert;
 use Symfony\Bundle\FrameworkBundle\Client;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class BaseTestCase extends \StarterKit\StartBundle\Tests\BaseTestCase
+class BaseTestCase extends WebTestCase
 {
+    const ENVIRONMENT = 'test';
+
+    /**
+     * @var Client
+     */
+    protected $client;
+
+    /**
+     * @var string
+     */
+    protected $environment = self::ENVIRONMENT;
+
+    /**
+     *
+     */
     public function setUp()
     {
-        $this->environment = 'test';
+        $this->client = static::createClient(['environment' => $this->environment]);
         parent::setUp();
     }
+
+    /**
+     * @return Client
+     */
+    public function makeClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * @return null|\Symfony\Component\DependencyInjection\ContainerInterface
+     */
+    public function getContainer()
+    {
+        return $this->client->getContainer();
+    }
+
 
     /**
      * Asserts the response's status code
