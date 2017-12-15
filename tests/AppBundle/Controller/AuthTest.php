@@ -27,7 +27,7 @@ class AuthTest extends BaseTestCase
         $this->environment = 'test';
         $userService = new UserService(
             $this->getContainer()->get('doctrine.orm.entity_manager'),
-            $this->getContainer()->get('security.encoder_factory'),
+            $this->getContainer()->get('security.user_password_encoder.generic'),
             $this->getContainer()->get('event_dispatcher'),
             $this->getContainer()->getParameter('starter_kit_start.refresh_token_ttl'),
             $this->getContainer()->getParameter('starter_kit_start.user_class')
