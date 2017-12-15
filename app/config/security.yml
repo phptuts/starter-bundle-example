@@ -12,7 +12,7 @@ security:
         email:
             id: StarterKit\StartBundle\Security\Provider\EmailProviderInterface
         slack:
-            id: StarterKit\StartBundle\Security\Provider\SlackProvider #TODO FIX TO USE INTERFACE
+            id: StarterKit\StartBundle\Security\Provider\SlackProviderInterface
         token:
             id: StarterKit\StartBundle\Security\Provider\TokenProviderInterface
         facebook:
@@ -40,7 +40,7 @@ security:
             provider: facebook
             guard:
                 authenticators:
-                    - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
+                    - StarterKit\StartBundle\Security\Guard\Login\AccessTokenGuardInterface
 
         google:
             pattern: ^/access-tokens/google
@@ -48,15 +48,7 @@ security:
             provider: google
             guard:
                 authenticators:
-                    - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
-
-        linkedin:
-            pattern: ^/oauth/linkedin*
-            stateless: true
-            provider: linkedin
-            guard:
-                authenticators:
-                    - StarterKit\StartBundle\Security\Guard\OAuthGuardInterface
+                    - StarterKit\StartBundle\Security\Guard\Login\AccessTokenGuardInterface
 
         slack:
             pattern: ^/oauth/slack*
@@ -64,7 +56,15 @@ security:
             provider: slack
             guard:
                 authenticators:
-                    - StarterKit\StartBundle\Security\Guard\OAuthGuardInterface
+                    - StarterKit\StartBundle\Security\Guard\OAuth\OAuthGuardInterface
+
+        linkedin:
+            pattern: ^/oauth/slack*
+            stateless: true
+            provider: linkedin
+            guard:
+                authenticators:
+                    - StarterKit\StartBundle\Security\Guard\OAuth\OAuthGuardInterface
 
         refresh:
             pattern: ^/access-tokens/refresh
@@ -72,7 +72,7 @@ security:
             provider: refresh
             guard:
                 authenticators:
-                    - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
+                    - StarterKit\StartBundle\Security\Guard\Login\AccessTokenGuardInterface
 
         login:
             pattern: ^/login_check
@@ -80,7 +80,12 @@ security:
             provider: email
             guard:
                 authenticators:
-                    - StarterKit\StartBundle\Security\Guard\LoginGuardInterface
+                    - StarterKit\StartBundle\Security\Guard\Login\EmailGuardInterface
+
+        login_page:
+            pattern: ^/login$
+            stateless: true
+            security: false
 
         api:
             pattern: ^/api*

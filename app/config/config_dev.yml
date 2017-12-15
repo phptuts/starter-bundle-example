@@ -11,8 +11,6 @@ web_profiler:
     toolbar: true
     intercept_redirects: false
 
-liip_functional_test: ~
-
 
 monolog:
     handlers:

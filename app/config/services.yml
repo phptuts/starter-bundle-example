@@ -28,19 +28,12 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
-    # Third Party Bundle Services
-    Doctrine\Common\Cache\PredisCache:
-        class: '%snc_redis.doctrine_cache_predis.class%'
-        arguments:
-            - '@snc_redis.default'
-
     #Github Client
     AppBundle\Client\LinkedInClient:
         class: AppBundle\Client\LinkedInClient
         arguments:
-            - '@GuzzleHttp\Client'
-            - '%app.linked_in_client_secret%'
-            - '%app.linked_in_client_id%'
+            $secret: '%app.linked_in_client_secret%'
+            $clientId: '%app.linked_in_client_id%'
 
 
 
@@ -48,18 +41,14 @@ services:
     AppBundle\Listener\ExceptionListener:
         class: AppBundle\Listener\ExceptionListener
         arguments:
-            - '@twig'
-            - '@monolog.logger'
-            - '%app.from_email%'
+            $email: '%app.from_email%'
         tags:
             - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
 
     AppBundle\Listener\UserListener:
         class: AppBundle\Listener\UserListener
         arguments:
-            - '@twig'
-            - '@mailer'
-            - '%app.from_email%'
+            $fromEmail: '%app.from_email%'
         tags:
             - { name: kernel.event_listener, event: 'register_event', method: onRegister }
             - { name: kernel.event_listener, event: 'forget_password_event', method: onForgetPassword }

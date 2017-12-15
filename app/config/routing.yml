@@ -6,11 +6,11 @@ main:
 starter_kit_start:
     resource: "@StarterKitStartBundle/Resources/config/routing.yml"
 
-NelmioApiDocBundle:
-    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+app.swagger_ui:
+    resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
     prefix:   /api/doc
 
 easy_admin_bundle:
-    resource: "@AppBundle/Controller/Admin/AdminController.php"
+    resource: "@EasyAdminBundle/Controller/AdminController.php"
     type:     annotation
     prefix:   /admin
