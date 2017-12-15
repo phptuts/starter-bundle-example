@@ -3,10 +3,9 @@
 
 namespace Tests\AppBundle\Controller;
 
+use Liip\FunctionalTestBundle\Test\WebTestCase;
 
-use Tests\AppBundle\BaseTestCase;
-
-class HomeControllerTest extends BaseTestCase
+class HomeControllerTest extends WebTestCase
 {
     /**
      * Testing that the home page loads
