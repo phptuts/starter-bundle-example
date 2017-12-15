@@ -8,12 +8,15 @@ use AppBundle\Service\DatabaseTokenService;
 use AppBundle\Service\UserService;
 use PHPUnit\Framework\Assert;
 use StarterKit\StartBundle\Service\AuthResponseService;
-use StarterKit\StartBundle\Tests\Controller\BaseApiTestCase;
+use StarterKit\StartBundle\Tests\Controller\RequestTrait;
 use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\HttpFoundation\Request;
+use Tests\AppBundle\BaseTestCase;
 
-class AuthTest extends BaseApiTestCase
+class AuthTest extends BaseTestCase
 {
+    use RequestTrait;
+    
     /**
      * @var DatabaseTokenService
      */
