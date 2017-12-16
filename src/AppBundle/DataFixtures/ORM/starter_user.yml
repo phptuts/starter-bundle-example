@@ -5,5 +5,3 @@ AppBundle\Entity\User:
         roles: ['ROLE_ADMIN']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'

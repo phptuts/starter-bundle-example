@@ -7,9 +7,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_USER']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
-
 
     example_user:
         email: 'example@gmail.com'
@@ -17,8 +14,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_USER']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     regular_user:
         email: 'regular_user@gmail.com'
@@ -26,8 +21,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_USER']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     admin_user:
         email: 'admin_user@gmail.com'
@@ -35,8 +28,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_ADMIN']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     change_email_user:
         email: 'change_email_user@gmail.com'
@@ -44,8 +35,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_ADMIN']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     disable_user:
         email: 'disable_user@gmail.com'
@@ -53,8 +42,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_ADMIN']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     change_password_user:
         email: 'change_password_user@gmail.com'
@@ -62,8 +49,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_ADMIN']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     future_admin_user:
         email: 'future_admin_user@gmail.com'
@@ -71,9 +56,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_USER']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
-
 
     forget_password_1:
         email: 'forget_password_1@gmail.com'
@@ -83,8 +65,6 @@ AppBundle\Entity\User:
         forgetPasswordToken: 'token'
         forgetPasswordExpired: <dateTimeBetween("+10 days", "+20 days")>
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     forget_password_2:
         email: 'forget_password_2@gmail.com'
@@ -94,8 +74,6 @@ AppBundle\Entity\User:
         forgetPasswordToken: 'token'
         forgetPasswordExpired: <dateTimeBetween("+10 days", "+20 days")>
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     forget_password_3:
         email: 'forget_password_3@gmail.com'
@@ -106,8 +84,6 @@ AppBundle\Entity\User:
         forgetPasswordToken: 'token_1'
         forgetPasswordExpired: <dateTimeBetween("+10 days", "+20 days")>
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     forget_password_end_2_end:
         email: 'forget_password_end_2_end@gmail.com'
@@ -116,8 +92,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_USER']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     change_password_end_2_end:
         email: 'change_password_end_2_end@gmail.com'
@@ -126,8 +100,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_USER']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     update_user_e2e:
         email: update_user_e2e@email.com
@@ -136,8 +108,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_USER']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     account_setting_user:
         email: 'update_profile@gmail.com'
@@ -145,8 +115,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_USER']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     account_setting_change_password:
         email: 'change_password@gmail.com'
@@ -154,8 +122,6 @@ AppBundle\Entity\User:
         roles: ['ROLE_USER']
         enabled: true
         source: 'website'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     facebook_user_id_test:
         email: 'facebook_user_id_test@gmail.com'
@@ -164,8 +130,6 @@ AppBundle\Entity\User:
         enabled: true
         source: 'website'
         facebookUserId: 'facebook_test_user_id32'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     google_user_id_test:
         email: 'google_user_id_test@gmail.com'
@@ -174,8 +138,6 @@ AppBundle\Entity\User:
         enabled: true
         source: 'website'
         googleUserId: 'google_user_id_dsf3'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     refresh_token_valid:
         email: 'refresh_token_valid@gmail.com'
@@ -185,8 +147,6 @@ AppBundle\Entity\User:
         source: 'website'
         refreshToken: 'refresh_token_valid'
         refreshTokenExpire: '<dateTimeBetween("+1 days", "+10 days")>'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     refresh_token_expired:
         email: 'refresh_token_expired@gmail.com'
@@ -196,8 +156,6 @@ AppBundle\Entity\User:
         source: 'website'
         refreshToken: 'refresh_token_expired'
         refreshTokenExpire: '<dateTimeBetween("-10 days", "-1 days")>'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
 
     slack_user:
         email: 'slack_user@gmail.com'
@@ -206,5 +164,5 @@ AppBundle\Entity\User:
         enabled: true
         source: 'slack'
         slackUserId: 'slack_33'
-        authToken: 'hello'
-        authTokenExpire: '<dateTimeBetween("now", "10 days")>'
+
+
