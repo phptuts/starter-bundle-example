@@ -35,6 +35,7 @@ class BaseTestCase extends WebTestCase
      */
     public function makeClient()
     {
+        $this->client->getCookieJar()->clear();
         return $this->client;
     }
 
