@@ -42,9 +42,7 @@ class AccountSettingControllerTest extends BaseTestCase
         );
 
         $json = json_decode($response->getContent(), true);
-
-        dump($json);
-
+        
         $client->getCookieJar()->set(new Cookie(
                 AuthResponseService::AUTH_COOKIE,
                 $json['data']['tokenModel']['token'],
