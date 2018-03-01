@@ -5,7 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\User;
 use StarterKit\StartBundle\Form\ChangePasswordType;
 use StarterKit\StartBundle\Form\UpdateUserType;
-use StarterKit\StartBundle\Service\S3ServiceInterface;
+use StarterKit\StartBundle\Service\FileUploadInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use StarterKit\StartBundle\Service\UserServiceInterface;
@@ -25,14 +25,14 @@ class AccountSettingController extends Controller
     private $userService;
 
     /**
-     * @var S3ServiceInterface
+     * @var FileUploadInterface
      */
-    private $s3Service;
+    private $fileUploadService;
 
-    public function __construct(UserServiceInterface $userService, S3ServiceInterface $s3Service)
+    public function __construct(UserServiceInterface $userService, FileUploadInterface $fileUploadService)
     {
         $this->userService = $userService;
-        $this->s3Service = $s3Service;
+        $this->fileUploadService = $fileUploadService;
     }
 
     /**
@@ -52,7 +52,7 @@ class AccountSettingController extends Controller
             /** @var User $user */
             $user = $form->getData();
             if (!empty($user->getImage())) {
-                $url = $this->s3Service->uploadFile($user->getImage(), 'profile_pics', md5($user->getId() . '_profile_id'));
+                $url = $this->fileUploadService->uploadFile($user->getImage(), 'profile_pics', md5($user->getId() . '_profile_id'));
                 $user->setImageUrl($url);
             }
 

@@ -3,9 +3,7 @@
 namespace AppBundle\Client;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\BadResponseException;
 use StarterKit\StartBundle\Model\User\OAuthUser;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 
 class LinkedInClient
